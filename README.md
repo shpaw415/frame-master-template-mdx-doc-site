@@ -1,22 +1,42 @@
-# Frame Master Template: Cloudflare Pages + React + Tailwind CSS
+# Frame Master Template: MDX Documentation Site
 
-A modern, high-performance starter template for building React applications deployed to Cloudflare Pages, styled with Tailwind CSS, and orchestrated by Frame Master.
+A modern, high-performance starter template for building documentation sites with MDX, React, and Tailwind CSS, Ready for CDN.
 
 ![Frame Master Template](https://img.shields.io/badge/Frame%20Master-Template-blueviolet)
 ![React](https://img.shields.io/badge/React-19-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1-38bdf8)
-![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-orange)
 ![Bun](https://img.shields.io/badge/Bun-1.3-black)
 
 ## 🚀 Features
 
-- **React 18/19**: The latest version of React for building interactive UIs.
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
-- **Cloudflare Pages**: Deploys instantly to the edge with global low latency.
-- **Frame Master**: Integrated workflow for seamless development and plugin management.
-- **Bun**: Lightning-fast JavaScript runtime and package manager.
-- **Client-Side HMR**: Instant feedback during development.
-- **TypeScript**: Type-safe development for better code quality.
+- **MDX Support**: Write documentation in Markdown with embedded React components
+- **React 19**: The latest version of React for building interactive UIs
+- **Tailwind CSS**: Utility-first CSS framework with Typography plugin
+- **Pre-built Components**: Ready-to-use Header and Footer components
+- **Site Configuration**: Centralized config file for easy customization
+- **Frame Master**: Integrated workflow for seamless development
+- **Bun**: Lightning-fast JavaScript runtime and package manager
+- **TypeScript**: Type-safe development for better code quality
+
+## 📁 Project Structure
+
+```
+src/
+├── site.config.ts      # ⚙️ Site configuration (name, links, nav, etc.)
+├── shell.tsx           # HTML shell wrapper
+├── common.ts           # Shared utilities
+├── components/
+│   ├── index.ts        # Components barrel export
+│   ├── Header.tsx      # Site header with navigation
+│   └── Footer.tsx      # Site footer with links
+└── pages/
+    ├── layout.tsx      # Page layout wrapper
+    └── index.mdx       # Home page
+static/
+├── style.css           # Compiled Tailwind CSS
+├── tailwind.css        # Tailwind source
+└── favicon.svg         # Site favicon
+```
 
 ## 🛠️ Getting Started
 
@@ -50,54 +70,130 @@ A modern, high-performance starter template for building React applications depl
 Start the development server with Hot Module Replacement (HMR):
 
 ```bash
-bun dev
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `src/pages/index.tsx`. The page auto-updates as you edit the file.
-
-## 📦 Building for Production
-
-To create a production build:
+### Build for Production
 
 ```bash
 bun run build
 ```
 
-The build artifacts will be stored in the `.frame-master/build` directory (or your configured output directory).
+## ⚙️ Configuration
 
-## ☁️ Deployment
+### Site Configuration (`src/site.config.ts`)
+
+The main configuration file for your documentation site. Update these values to customize your site:
+
+```typescript
+export const siteConfig = {
+  // Site name displayed in header and title
+  name: "My Documentation",
+
+  // Site description for SEO
+  description: "Documentation site built with Frame Master",
+
+  // Author information
+  author: {
+    name: "Your Name",
+    url: "https://github.com/yourusername",
+  },
+
+  // Social links (leave empty to hide)
+  links: {
+    github: "https://github.com/yourusername/your-repo",
+    twitter: "https://twitter.com/yourusername",
+    discord: "",
+  },
+
+  // Navigation items
+  nav: [
+    { label: "Home", href: "/" },
+    { label: "Docs", href: "/docs" },
+    { label: "Blog", href: "/blog" },
+  ],
+
+  // Footer sections
+  footer: {
+    sections: [
+      {
+        title: "Documentation",
+        links: [
+          { label: "Getting Started", href: "/docs/getting-started" },
+          // ...
+        ],
+      },
+    ],
+    copyright: "© 2025 Your Project. All rights reserved.",
+  },
+};
+```
+
+## 📝 Writing Documentation
+
+### Creating Pages
+
+Add `.mdx` files in the `src/pages` directory:
+
+```
+src/pages/
+├── index.mdx           # / (home)
+├── about.mdx           # /about
+├── docs/
+│   ├── index.mdx       # /docs
+│   ├── getting-started.mdx  # /docs/getting-started
+│   └── api/
+│       └── index.mdx   # /docs/api
+```
+
+### Using Components in MDX
+
+Import and use React components directly in your MDX files:
+
+```mdx
+import { Alert } from "../components/Alert";
+
+# My Page
+
+<Alert type="info">This is an informational alert!</Alert>
+
+Regular markdown content continues here...
+```
+
+### Creating Custom Components
+
+Add new components in `src/components/`:
+
+```tsx
+// src/components/Alert.tsx
+export function Alert({ type, children }) {
+  return <div className={`alert alert-${type}`}>{children}</div>;
+}
+```
+
+Export from the barrel file:
+
+```typescript
+// src/components/index.ts
+export { Alert } from "./Alert";
+```
+
+## 🚀 Deployment
 
 ### Cloudflare Pages
 
-1. Push your code to a GitHub repository.
-2. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/) and go to **Pages**.
-3. Click **Create a project** > **Connect to Git**.
-4. Select your repository.
-5. Configure the build settings:
-   - **Framework preset**: None / Custom
-   - **Build command**: `bun run build`
-   - **Build output directory**: `.frame-master/build`
-6. Click **Save and Deploy**.
+1. Push your code to GitHub
+2. Connect your repository to Cloudflare Pages
+3. Set build command: `bun run build`
+4. Set output directory: `.frame-master/build`
 
-## 📂 Project Structure
+### Manual Deployment
 
-```
-.
-├── src/
-│   ├── pages/          # Application pages
-│   │   ├── index.tsx   # Home page
-│   │   └── layout.tsx  # Main layout component
-│   ├── shell.tsx       # App shell configuration
-│   └── client-wrapper.tsx
-├── static/             # Static assets (images, global CSS)
-├── frame-master.config.ts # Frame Master configuration
-├── tailwind.config.js  # Tailwind CSS configuration
-├── tsconfig.json       # TypeScript configuration
-└── package.json
+```bash
+bun run build
+# Deploy the .frame-master/build directory to your hosting provider
 ```
 
-## 📄 License
+## 📜 License
 
-This project is licensed under the MIT License.
+MIT License - feel free to use this template for any project!

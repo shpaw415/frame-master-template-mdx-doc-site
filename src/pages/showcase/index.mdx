@@ -1,0 +1,245 @@
+import {
+  Counter,
+  Alert,
+  Tabs,
+  Card,
+  CardGrid,
+  Badge,
+  Accordion,
+} from "../../components/Showcase.tsx";
+
+# MDX Showcase
+
+This page demonstrates the power of **MDX** - combining Markdown with React components for interactive documentation.
+
+---
+
+## Interactive Counter
+
+MDX allows you to embed interactive React components directly in your documentation. Here's a simple counter with state:
+
+<Counter />
+
+```jsx
+import { Counter } from "../../components/Showcase";
+
+<Counter />;
+```
+
+---
+
+## Alert Components
+
+Display important information with styled alerts:
+
+<Alert type="info" title="Information">
+  This is an informational alert. Use it to highlight helpful tips.
+</Alert>
+
+<Alert type="success" title="Success">
+  Operation completed successfully! Your changes have been saved.
+</Alert>
+
+<Alert type="warning" title="Warning">
+  Be careful! This action may have unintended consequences.
+</Alert>
+
+<Alert type="error" title="Error">
+  Something went wrong. Please try again later.
+</Alert>
+
+```jsx
+<Alert type="info" title="Information">
+  This is an informational alert.
+</Alert>
+```
+
+---
+
+## Tabs Component
+
+Organize content into tabbed sections:
+
+<Tabs
+  items={[
+    {
+      label: "npm",
+      content: (
+        <pre className="bg-card p-3 rounded text-sm border border-border">
+          npm install frame-master
+        </pre>
+      ),
+    },
+    {
+      label: "yarn",
+      content: (
+        <pre className="bg-card p-3 rounded text-sm border border-border">
+          yarn add frame-master
+        </pre>
+      ),
+    },
+    {
+      label: "bun",
+      content: (
+        <pre className="bg-card p-3 rounded text-sm border border-border">
+          bun add frame-master
+        </pre>
+      ),
+    },
+  ]}
+/>
+
+---
+
+## Card Grid
+
+Display features or links in a grid layout:
+
+<CardGrid>
+  <Card
+    title="Fast Development"
+    description="Hot Module Replacement for instant feedback during development."
+    icon={
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M13 10V3L4 14h7v7l9-11h-7z"
+        />
+      </svg>
+    }
+  />
+  <Card
+    title="Type Safe"
+    description="Full TypeScript support with auto-generated types."
+    icon={
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+        />
+      </svg>
+    }
+  />
+  <Card
+    title="Easy to Use"
+    description="Simple configuration and intuitive API design."
+    icon={
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    }
+  />
+  <Card
+    title="Edge Ready"
+    description="Deploy to Cloudflare Pages for global performance."
+    icon={
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
+        />
+      </svg>
+    }
+  />
+</CardGrid>
+
+---
+
+## Badges
+
+Use inline badges to highlight status or categories: <Badge>Default</Badge> <Badge variant="success">Success</Badge> <Badge variant="warning">Warning</Badge> <Badge variant="error">Error</Badge>
+
+---
+
+## Accordion
+
+Expandable FAQ-style content:
+
+<Accordion
+  items={[
+    {
+      title: "What is MDX?",
+      content:
+        "MDX is a format that lets you seamlessly write JSX in your Markdown documents. You can import components and export metadata.",
+    },
+    {
+      title: "How do I create a new page?",
+      content:
+        "Simply create a new .mdx file in the src/pages directory. The file path determines the URL route.",
+    },
+    {
+      title: "Can I use custom components?",
+      content:
+        "Yes! Create components in src/components and import them directly in your MDX files.",
+    },
+  ]}
+/>
+
+---
+
+## Using Variables
+
+You can also use JavaScript expressions in MDX:
+
+export const version = "1.0.0";
+export const releaseDate = "December 2024";
+
+- **Current Version:** {version}
+- **Release Date:** {releaseDate}
+- **Current Year:** {new Date().getFullYear()}
+
+```mdx
+export const version = "1.0.0";
+
+Current version: {version}
+```
+
+---
+
+## Mixing Markdown & JSX
+
+MDX seamlessly blends Markdown and JSX. You can:
+
+1. Write standard **Markdown** with _formatting_
+2. Use `inline code` and code blocks
+3. Embed React components anywhere
+4. Pass props dynamically
+
+<Alert type="success" title="Ready to Build">
+  You now have all the tools to create amazing interactive documentation!
+</Alert>
+
+---
+
+[← Back to Home](/)

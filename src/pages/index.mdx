@@ -1,3 +1,67 @@
-## Test
+# Welcome to Your Documentation
 
-allo
+Build beautiful documentation sites with **Frame Master** and **MDX**.
+
+## Getting Started
+
+This template provides everything you need to create a modern documentation website:
+
+- 📝 **MDX Support** - Write content in Markdown with JSX components
+- 🎨 **Tailwind CSS** - Utility-first CSS framework for rapid styling
+- ⚡ **Fast Refresh** - Instant feedback during development
+- 🚀 **Cloudflare Pages** - Deploy to the edge with global low latency
+
+## Quick Start
+
+```bash
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
+
+# Build for production
+bun run build
+```
+
+## Configuration
+
+Customize your site by editing `src/site.config.ts`:
+
+```typescript
+export const siteConfig = {
+  name: "My Documentation",
+  description: "Your site description",
+  // ... more options
+};
+```
+
+## Writing Content
+
+Create new pages by adding `.mdx` files in the `src/pages` directory:
+
+```
+src/pages/
+├── index.mdx        # Home page (/)
+├── docs/
+│   ├── index.mdx    # Docs index (/docs)
+│   └── guide.mdx    # Guide page (/docs/guide)
+└── about/
+    └── index.mdx    # About page (/about)
+```
+
+## Using Components
+
+Import and use React components directly in your MDX files:
+
+```mdx
+import { MyComponent } from "../components/MyComponent";
+
+# My Page
+
+<MyComponent prop="value" />
+```
+
+---
+
+Ready to build something amazing? Check out the [documentation](https://mdxjs.com/docs) to learn more.

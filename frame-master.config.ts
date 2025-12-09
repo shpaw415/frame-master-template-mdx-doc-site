@@ -3,13 +3,13 @@ import ReactToHtml from "frame-master-plugin-react-to-html";
 import ApplyReact from "frame-master-plugin-apply-react/plugin";
 import TailwindPlugin from "frame-master-plugin-tailwind";
 import mdxLoader from "frame-master-plugin-mdx-to-js-loader";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export default {
   HTTPServer: {
     port: 3001,
   },
   plugins: [
-    mdxLoader(),
     ReactToHtml({
       shellPath: "src/shell.tsx",
       srcDir: "src/pages",
@@ -20,6 +20,22 @@ export default {
       route: "src/pages",
       style: "nextjs",
       entrypointExtensions: [".tsx", ".mdx"],
+    }),
+    mdxLoader({
+      mdxOptions: {
+        rehypePlugins: [
+          [
+            rehypePrettyCode,
+            {
+              theme: {
+                dark: "one-dark-pro",
+                light: "github-light",
+              },
+              keepBackground: false,
+            },
+          ],
+        ],
+      },
     }),
     TailwindPlugin({
       inputFile: "static/tailwind.css",
