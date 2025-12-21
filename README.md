@@ -184,7 +184,7 @@ export { Alert } from "./Alert";
 
 1. Push your code to GitHub
 2. Connect your repository to Cloudflare Pages
-3. Set build command: `bun run build`
+3. Set build command: `bun i && bun run build`
 4. Set output directory: `.frame-master/build`
 
 ### Manual Deployment
