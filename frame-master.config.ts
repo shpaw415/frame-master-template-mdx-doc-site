@@ -4,6 +4,7 @@ import ApplyReact from "frame-master-plugin-apply-react/plugin";
 import TailwindPlugin from "frame-master-plugin-tailwind";
 import mdxLoader from "frame-master-plugin-mdx-to-js-loader";
 import rehypePrettyCode from "rehype-pretty-code";
+import type { FrameMasterPlugin } from "frame-master/plugin";
 
 export default {
   HTTPServer: {
@@ -36,7 +37,7 @@ export default {
           ],
         ],
       },
-    }),
+    }) as FrameMasterPlugin,
     TailwindPlugin({
       inputFile: "static/tailwind.css",
       outputFile: "static/style.css",
