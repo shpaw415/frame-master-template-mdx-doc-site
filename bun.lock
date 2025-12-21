@@ -8,7 +8,7 @@
         "@tailwindcss/cli": "^4.1.18",
         "@tailwindcss/typography": "^0.5.19",
         "frame-master": "~3.1.1",
-        "frame-master-plugin-apply-react": "~0.2.3",
+        "frame-master-plugin-apply-react": "~0.2.4",
         "frame-master-plugin-mdx-to-js-loader": "~1.0.0",
         "frame-master-plugin-react-to-html": "~0.2.0",
         "frame-master-plugin-tailwind": "~1.1.1",
@@ -360,7 +360,7 @@
 
     "frame-master": ["frame-master@3.1.1", "", { "dependencies": { "@shpaw415/webtoken": "^2.0.0", "@types/git": "^0.0.21", "chalk": "^5.6.2", "commander": "^14.0.2", "git": "^0.1.5", "react": "^19.2.3", "react-dom": "^19.2.3", "tar": "^7.5.2" }, "peerDependencies": { "typescript": "^5.9.3" }, "bin": { "frame-master": "bin/index.ts" } }, "sha512-X6ZFF+3cgQeV+aAEdmbfO8OX12eG619rQMopT4dageEbwZ7zmNx1ckqWNadwS975GlwEC7i85eGlyAs+MC8xuQ=="],
 
-    "frame-master-plugin-apply-react": ["frame-master-plugin-apply-react@0.2.3", "", { "peerDependencies": { "frame-master": "^3.0.1", "react": "^19.2.0", "react-dom": "^19.2.0", "typescript": "^5.9.3" } }, "sha512-AawYcIcWg5NMY0X9Uhc3/ZgTwABPGj4sn5spGcZvxgYVJ8ozwP6UKFYPAgpvyelZQGobODJNuJ17ktABF4jYhw=="],
+    "frame-master-plugin-apply-react": ["frame-master-plugin-apply-react@0.2.4", "", { "peerDependencies": { "frame-master": "^3.0.1", "react": "^19.2.0", "react-dom": "^19.2.0", "typescript": "^5.9.3" } }, "sha512-59GaLNRNcO70rfP2tX9+c5WlI6b7SyJb1UqPXCzkjPyG3T2XSjjreMmyzOtHe1VvhmVca7noZsCQ2tBoo64kzA=="],
 
     "frame-master-plugin-mdx-to-js-loader": ["frame-master-plugin-mdx-to-js-loader@1.0.0", "", { "dependencies": { "@mdx-js/mdx": "^3.1.1", "vfile": "^6.0.3" }, "peerDependencies": { "frame-master": "^3.1.0" } }, "sha512-0t8iFaR/WPI/eK7FdqBpR+ox1/F31QdRAAVjUewwiHOWhVSfAsnXgnwr5lP9YHpwhXCvSqqe8D+BG2GzreB5Dg=="],
 

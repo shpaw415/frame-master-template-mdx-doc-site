@@ -11,7 +11,7 @@
     "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "frame-master": "~3.1.1",
-    "frame-master-plugin-apply-react": "~0.2.3",
+    "frame-master-plugin-apply-react": "~0.2.4",
     "frame-master-plugin-mdx-to-js-loader": "~1.0.0",
     "frame-master-plugin-react-to-html": "~0.2.0",
     "frame-master-plugin-tailwind": "~1.1.1",
